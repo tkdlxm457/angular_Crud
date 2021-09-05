@@ -1,0 +1,35 @@
+<section>
+  <div class="container">
+    <div class="top">
+    </div>
+    <div class="bottom">
+      <form (ngSubmit)="save()" [formGroup]="topicForm">
+        <input id="title" name="title" type="text" formControlName="title" />
+        <input id="description" name="description" type="text" formControlName="description" />
+        <button type="submit">저장!!!</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="container">
+    <table>
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>내용</th>
+          <th>작성일</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let topic of topicList">
+          <td>{{topic.id}}</td>
+          <td>{{topic.title}}</td>
+          <td>{{topic.description}}</td>
+          <td>{{topic.created}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
