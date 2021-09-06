@@ -17,12 +17,13 @@ interface Topic {
 })
 export class AppComponent {
   topicForm = new FormGroup({
+    id: new FormControl(''),
     title: new FormControl(''),
     description: new FormControl(''),
   });
   topicList: Topic[] = [];
 
-  constructor(private http: HttpClient,) {
+  constructor(private http: HttpClient) {
     this.getTopics();
     // http요청 보낸 데이터를 datas에다가 넣어주면 끝!
   }
@@ -56,7 +57,15 @@ export class AppComponent {
     // this.getTopics();
   }
 
+  selected(topic: Topic):void {
+    console.log(topic);
+    
+    this.topicForm.controls.title.setValue(topic.title);
+    this.topicForm.controls.description.setValue(topic.description);
+    this.topicForm.controls.id.setValue(topic.id);
 
+    console.log(this.topicForm.controls.id.value);
+  }
 }
 
 

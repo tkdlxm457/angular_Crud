@@ -7,6 +7,7 @@
         <input id="title" name="title" type="text" formControlName="title" />
         <input id="description" name="description" type="text" formControlName="description" />
         <button type="submit">저장!!!</button>
+        <button type="submit">수정</button>
       </form>
     </div>
   </div>
@@ -23,7 +24,7 @@
       </thead>
   
       <tbody>
-        <tr *ngFor="let topic of topicList">
+        <tr *ngFor="let topic of topicList" (click)="selected(topic)">
           <td>{{topic.id}}</td>
           <td>{{topic.title}}</td>
           <td>{{topic.description}}</td>
